@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { signOut, getAuth } from "firebase/auth";
 
+import { CONFIG } from "../../constants/config";
+
 import Button from "../Button";
 
 const NavBar = () => {
@@ -30,9 +32,20 @@ const NavBar = () => {
 
       setToShowDropDownMenu(false);
 
+      const response = await fetch(`${CONFIG.BACKEND_SERVER_URL}/logout`, {
+        method: "POST",
+        credentials: "include",
+      });
+
+      if (response.ok) {
+        console.log("로그아웃 성공");
+      } else {
+        console.error("로그아웃 실패");
+      }
+
       navigate("/");
     } catch (error) {
-      alert("error 발생");
+      console.log(error);
     }
   };
 
