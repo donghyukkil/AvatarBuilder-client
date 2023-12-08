@@ -100,6 +100,7 @@ const CanvasContainer = ({ style, elements }) => {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify(requestBody),
         },
       );
