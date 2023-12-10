@@ -26,6 +26,8 @@ const mockRef = {
   },
 };
 
+HTMLCanvasElement.prototype.getContext = vi.fn();
+
 describe("CanvasUnit", () => {
   test("should initialize with the correct size", () => {
     const { getByTestId } = render(<CanvasUnit ref={mockRef} {...mockProps} />);
