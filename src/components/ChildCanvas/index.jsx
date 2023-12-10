@@ -42,6 +42,7 @@ const ChildCanvas = ({
       onClick={() => {
         onElementChange(unitType, { ...elements[unitType], svgData });
       }}
+      data-testid="child-canvas"
     />
   );
 };
