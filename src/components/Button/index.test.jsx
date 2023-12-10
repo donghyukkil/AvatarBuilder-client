@@ -1,4 +1,5 @@
 import { vi } from "vitest";
+
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import Button from "./";
@@ -10,6 +11,7 @@ describe("Button Component", () => {
     expect(getByText("Home")).toBeInTheDocument();
 
     rerender(<Button>Login</Button>);
+
     expect(getByText("Login")).toBeInTheDocument();
   });
 

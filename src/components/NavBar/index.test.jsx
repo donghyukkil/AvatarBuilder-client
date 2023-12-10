@@ -3,6 +3,7 @@ import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import { describe, expect, vi } from "vitest";
 
 import NavBar from "./index";
+
 import { signOut } from "firebase/auth";
 
 window.alert = vi.fn();

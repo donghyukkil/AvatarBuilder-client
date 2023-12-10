@@ -1,8 +1,10 @@
+import { useState } from "react";
+
 import { render, screen, fireEvent } from "@testing-library/react";
+
 import { vi } from "vitest";
 
 import ColorPicker from "./index";
-import { useState } from "react";
 
 describe("ColorPicker Component", () => {
   test("should render color input when to Show is true", () => {
