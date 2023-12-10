@@ -7,6 +7,15 @@ vi.mock("react-router-dom", () => ({
   useNavigate: vi.fn(),
 }));
 
+beforeEach(() => {
+  HTMLCanvasElement.prototype.getContext = () => {
+    return {
+      fillStyle: vi.fn(),
+      fillRect: vi.fn(),
+    };
+  };
+});
+
 describe("CanvasContainer Component", () => {
   const mockStyle = "";
   const mockElements = {
