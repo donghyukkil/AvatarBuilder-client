@@ -19,6 +19,7 @@ const ParentCanvas = ({ width, height, children }) => {
           width={width}
           height={height}
           style={{ position: "relative", marginBottom: "20px" }}
+          data-testid="child-canvas"
         />
         {children}
       </div>
