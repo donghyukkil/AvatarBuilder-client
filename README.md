@@ -236,6 +236,12 @@ Mocking은 컴포넌트가 참조하고 있는 외부코드를 가짜로 대체�
 
 테스트는 **`<UnitSelector />`** 컴포넌트가 **`fetch`** 요청 에러를 올바르게 핸들링하는지 확인하는 것입니다. 여기서 주로 **`console.error`**가 예상대로 호출되는지 검사하고 있습니다. **`vi.fn(() => Promise.reject(new Error("fetch error")));`** 코드는 **`fetch`** 호출이 실패하고 "fetch error"라는 메시지를 가진 에러를 반환하도록 합니다. **`console.error`**를 스파이로 설정하여 **`console.error`** 호출을 가로채고 기록합니다. **`expect(consoleSpy).toHaveBeenCalledWith("Error");`** 코드는 **`console.error`**가 "Error"라는 인자로 호출되었는지 확인하여 에러 핸들링이 제대로 작동하는지 검사합니다.
 
+**커버리지**
+
+<p align="center">
+  <img src="./src/assets/testcodeCoverage.png", style="max-width: 100%; height: auto">
+</p>
+
 ## 로그인 로직 보완하기
 
 ### 기존 코드 문제점
