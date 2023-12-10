@@ -22,12 +22,14 @@ const Carousel = ({
           onClick={onPrevButtonClick}
           disabled={currentPage === 1}
           style={`ml-8 ${"disabled:opacity-25"}`}
+          data-testid="Prev"
         >
           <AiOutlineCaretLeft size={40} />
         </Button>
         <div className="flex space-x-5">
-          {Array.from({ length: itemsPerPage }).map((_, index) => {
-            const item = items[index];
+          {totalPages !== 0 &&
+            Array.from({ length: itemsPerPage }).map((_, index) => {
+              const item = items?.[index];
 
             return (
               <div key={index} className="w-1/3">
@@ -62,6 +64,7 @@ const Carousel = ({
           onClick={onNextButtonClick}
           disabled={currentPage === totalPages}
           style={`mr-8 ${"disabled:opacity-25"}`}
+          data-testid="Next"
         >
           <AiOutlineCaretRight size={40} />
         </Button>
