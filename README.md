@@ -2,7 +2,9 @@
 
 사용자가 간단한 조작으로 자신만의 프로필 이미지를 만들 수 있는 웹 애플리케이션입니다.
 
-![READMEProfile](https://github.com/team-desire/hello-sketch-client/assets/124029691/f0db6336-50d4-43eb-b17d-03f8b2d85cac)
+<p align="center">
+  <img src="https://github.com/team-desire/hello-sketch-client/assets/124029691/f0db6336-50d4-43eb-b17d-03f8b2d85cac", style="max-width: 80%; height: auto">
+</p>
 
 # 목차
 
@@ -27,6 +29,7 @@
 
     - [어떻게 컴포넌트를 일관된 기준으로 테스트할 수 있을까?](#어떻게-컴포넌트를-일관된-기준으로-테스트할-수-있을까)
     - [어떤 것을 테스트할 수 있을까?](#어떤-것을-테스트할-수-있을까)
+    - [커버리지](#커버리지)
 
   - [로그인 로직 보완하기](#로그인-로직-보완하기)
     - [기존 코드 문제점](#기존-코드-문제점)
@@ -49,11 +52,15 @@
 # 주요 기능 소개
 
 **프로필 이미지 선택 및 색상 변경**
-![selectProfileImage](https://github.com/team-desire/hello-sketch-client/assets/124029691/690370ed-bf75-4525-93ec-a543d63d21d8)
+
+<p align="center">
+  <img src="https://github.com/team-desire/hello-sketch-client/assets/124029691/690370ed-bf75-4525-93ec-a543d63d21d8", style="max-width: 80%; height: auto">
+</p>
 
 **프로필 이미지 이동 및 다운로드**
-![imageMoveandDownload](https://github.com/team-desire/hello-sketch-client/assets/124029691/64ad7770-f3a1-44cf-9cc7-7b5e1394f9bc)
-
+<p align="center">
+  <img src="https://github.com/team-desire/hello-sketch-client/assets/124029691/64ad7770-f3a1-44cf-9cc7-7b5e1394f9bc", style="max-width: 80%; height: auto">
+</p>
 # 프로젝트 관심사
 
 ## 어떻게 하면 이미지를 그릴 수 있을까?
@@ -70,9 +77,9 @@
 | 호환성    | 대부분의 이미지 편집 소프트웨어 및 브라우저에서 지원 | 웹 브라우저 및 벡터 편집 소프트웨어에서 주로 사용 |
 | 특징      | 로스리스 압축, 투명 배경 지원                        | XML 기반, 스크립트 및 인터랙티브 요소 추가 가능   |
 
-PNG (Portable Network Graphics)는 래스터 파일 유형으로 분류됩니다. 래스터 파일은 픽셀로 구성된 이미지를 뜻하며, 따라서 PNG는 작은 컬러 사각형인 픽셀이 무수히 많이 모인 이미지 파일입니다. 보통 래스터 이미지는 사이즈가 하나로 고정되어 있습니다. 따라서 그 크기가 바뀌면, 구성 요소인 픽셀이 변화되고 전체 이미지 역시 변형됩니다. (이와 달리 밑에서 설명할 벡터 이미지는 래스터 이미지와 달리 화면이 달라져도 이미지가 변형되지 않습니다.) 래스터 파일의 유형은 대표적으로 PNG, JPEG, GIF 등이 있습니다. PNG 파일은 무손실 압축, 고해상도가 특징입니다.
+PNG (Portable Network Graphics)는 래스터 파일 유형으로 분류됩니다. 래스터 파일은 픽셀로 구성된 이미지를 뜻하며, 따라서 PNG는 작은 컬러 사각형인 픽셀이 무수히 많이 모인 이미지 파일입니다. 보통 래스터 이미지는 사이즈가 하나로 고정되어 있습니다. 따라서 그 크기가 바뀌면, 구성 요소인 픽셀이 변화되고 전체 이미지 역시 변형됩니다. (이와 달리 밑에서 설명할 벡터 이미지는 화면이 달라져도 이미지가 변형되지 않습니다.) 래스터 파일의 유형은 대표적으로 PNG, JPEG, GIF 등이 있습니다. PNG 파일은 무손실 압축, 고해상도가 특징입니다.
 
-SVG (Scalable Vector Graphics)는 벡터 파일 유형에 해당하며 컴퓨터가 도형, 테두리, 점, 선 등을 이용하여 이미지를 만들어 내는 것을 뜻하고 픽셀을 사용하지 않기 때문에, 크기에 상관없이 이미지가 언제나 동일한 모습을 유지할 수 있습니다. PNG에 비해 크기도 작아서 웹에서 빠르게 로딩될 수 있습니다. 또한 XML로 작성되서 텍스트 편집기로 편집할 수 있고 프로그래밍 언어를 이용하여 SVG 속성을 변경할 수 있습니다.
+SVG (Scalable Vector Graphics)는 벡터 파일 유형에 해당하며 컴퓨터가 도형, 테두리, 점, 선 등을 이용하여 이미지를 만들어 내는 것을 뜻하고 픽셀을 사용하지 않습니다. 따라서 크기에 상관없이 이미지가 언제나 동일한 모습을 유지할 수 있습니다. PNG에 비해 크기도 작아서 웹에서 빠르게 로딩될 수 있습니다. 또한 XML로 작성되서 텍스트 편집기로 편집할 수 있고 프로그래밍 언어를 이용하여 SVG 속성을 변경할 수 있습니다.
 
 SVG는 IE 8 이하에서는 지원되지 않습니다. 반면 PNG는 표준 온라인 포맷으로 웹 브라우저와 운영 체제에서 폭넓게 지원하는 파일 로맷이어서 SVG보다 더 익숙한 포맷 형태이기도 합니다. 프로젝트가 사용자의 액션에 의해 이미지의 색상, 위치, 사이즈 등을 변경하는 것이 핵심 기능이었습니다. 따라서 프로그래밍 언어로 파일의 속성을 변경할 수 있는 SVG를 이미지 파일 포맷으로 결정하게 되었습니다.
 
@@ -80,7 +87,7 @@ SVG는 IE 8 이하에서는 지원되지 않습니다. 반면 PNG는 표준 온�
 
 이제 SVG 파일을 어떻게 React에서 렌더링할 수 있을지에 대해 고민하기 시작했습니다. React에서 직접 SVG 태그를 렌더링하는 것도 가능하지만, 이 경우에는 SVG의 동적 조작이 제한적입니다. 또한 파일 내에 자바스크립트 코드가 포함될 수 있어 XSS와 같은 보안 문제에 더 취약할 수 있습니다. 따라서, 안전한 SVG 처리를 위해서는 SVG 파일을 문자열로 변환하고, 이를 React의 JSX 내에서 렌더링하게 되었습니다.
 
-사용자에 의해 SVG 파일을 조회 및 수정해야만 했습니다. 이를 위해 SVG 파일을 Amazon S3에 저장하고, 이 파일들의 URI를 데이터베이스에 보관하는 아키텍처를 구현하고 사용자 인터페이스에서 동적으로 이미지 콘텐츠를 제공할 수 있도록 코드를 구현하였습니다. 클라이언트가 데이터베이스에서 URI를 검색하고 S3 리소스에 직접 접근하도록 함으로써, 클라이언트 성능을 향상시키고 서버 부하를 줄일 수 있었습니다. 클라이언트가 해당 주소로 S3에 직접 요청을 보내 문자열화된 SVG파일을 얻는 `getSvgDataArray` 함수를 만들었습니다. `getSvgDataArray`가 반환한 각 unit들을 Carousel에 props로 전달하여 사용자가 이미지를 선택할 수 있도록 하였습니다.
+사용자에 의해 SVG 파일을 조회 및 수정해야만 했습니다. 이를 위해 SVG 파일을 Amazon S3에 저장하고, 이 파일들의 URI를 데이터베이스에 보관하는 아키텍처를 구현하고 사용자 인터페이스에서 동적으로 이미지 콘텐츠를 제공할 수 있도록 코드를 구현하였습니다. 클라이언트가 데이터베이스에서 URI를 검색하고 S3 리소스에 직접 접근하도록 함으로써, 클라이언트 성능을 향상시키고 서버 부하를 줄일 수 있었습니다. 클라이언트가 해당 주소로 S3에 직접 요청을 보내 문자열화된 SVG파일을 얻는 `getSvgDataArray` 함수를 만들었습니다. `getSvgDataArray`가 반환한 각 SVG 이미지를 Carousel에 props로 전달하여 사용자가 이미지를 선택할 수 있도록 하였습니다.
 
 ### Canvas API 도입한 이유
 
@@ -95,7 +102,7 @@ SVG는 IE 8 이하에서는 지원되지 않습니다. 반면 PNG는 표준 온�
 | 이미지 다운로드    | 가능, 복잡할 수 있음                                      | 어려움                                      | Canvas API를 통한 이미지 다운로드 용이                       |
 | 호환성             | 브라우저 간 차이 발생 가능                                | 브라우저 간 차이 발생 가능                  | 브라우저 간 일관성 제공                                      |
 
-이미지 요소를 조회 및 조작하기 위해서 `div` 태그로 wrapping 하는 방식을 고려했습니다. 원하는 SVG 이미지가 담긴 `div` 요소를 선택하고 이동 및 조작하는데는 성공하였습니다. 하지만 `div` 태그로 wrapping 하는 방식으로는 라이브러리 없이 이미지 다운로드를 구현하기가 어렵다는 것을 알게 되었습니다. 프로젝트 막바지 무렵에 canvas 태그로 SVG를 wrapping하는 방식을 검토하게 되었습니다.
+이미지 요소를 조회 및 조작하기 위해서 `div` 태그로 wrapping 하는 방식을 고려했습니다. 원하는 SVG 이미지가 담긴 `div` 요소를 선택하고 이동 및 조작하는데는 성공하였습니다. 하지만 `div` 태그로 wrapping 하는 방식으로는 라이브러리 없이 이미지 다운로드를 구현하기가 어렵다는 것을 알게 되었습니다. 따라서 프로젝트 막바지 무렵에 canvas 태그로 SVG를 wrapping하는 방식을 검토하게 되었습니다.
 
 div를 사용한 방식은 SVG가 DOM의 일부로 취급되어 JavaScript를 이용한 조작이 쉬워집니다. `div`를 통해 SVG 이미지의 크기를 조절하거나 위치를 변경할 수 있고 CSS를 통한 스타일링도 쉬워집니다. 반면 canvas를 사용하는 방식은 DOM의 일부로 간주되지 않습니다. canvas 내부의 요소들은 HTML 문서의 나머지 부분과 독립적으로 취급되고 JavaScript에 의한 조작이 `div`에 비해 복잡합니다. 또한 canvas 내부의 그래픽은 CSS를 통해 직접적으로 스타일링할 수 없고 모든 스타일링은 JavaScript를 통해 프로그래밍적으로 이루어져야 합니다.
 
@@ -106,18 +113,18 @@ SVG를 직접 렌더링 하는 대신 Image 객체를 이용하여 canvas에 그
 ### 사용자 입력에 따라 동적으로 SVG 조작하기
 
 <p align="center">
-  <img src="./src/assets/updateSVGDataExaple.png", style="max-width: 100%; height: auto">
+  <img src="./src/assets/updateSVGDataExaple.png", style="max-width: 80%; height: auto">
 </p>
 
-**`updateSvgData`** 함수는 SVG 데이터 문자열과 채우기 색상을 인자로 받아, SVG 내의 특정 요소들의 채우기 색상을 변경하는 기능을 수행합니다. 함수는 먼저 **`DOMParser`** 객체를 생성하여 SVG 데이터 문자열을 DOM 형태로 파싱합니다. 이 파싱 과정은 문자열 형태의 SVG 데이터를 DOM(Document Object Model)으로 변환하여, JavaScript가 이를 조작할 수 있게 합니다.
+**`updateSvgData`** 함수는 문자열화 된 SVG 데이터와 색상을 인자로 받아, SVG 내의 특정 요소들의 색상을 변경하는 기능을 수행합니다. 함수는 먼저 **`DOMParser`** 객체를 생성하여 SVG 데이터 문자열을 DOM 형태로 파싱합니다. 이 파싱 과정으로 문자열 형태의 SVG 데이터를 DOM(Document Object Model)으로 변환하여, JavaScript가 이를 조작할 수 있게 합니다.
 
-함수는 DOM 내에서 클래스 이름이 **`.target`**인 모든 요소를 **`querySelectorAll`** 메서드를 통해 찾습니다. 이 메서드는 해당 조건에 부합하는 모든 요소를 NodeList 형태로 반환합니다. 찾아진 각 요소에 대해, **`forEach`** 반복문을 사용하여 해당 요소의 **`fill`** 속성을 입력받은 채우기 색상(**`fillColor`**)으로 설정합니다. 이러한 과정을 통해 해당 클래스를 가진 모든 SVG 요소들의 색상이 변경됩니다.
+함수는 DOM 내에서 클래스 이름이 **`.target`**인 모든 요소를 **`querySelectorAll`** 메서드를 통해 찾습니다. 이 메서드는 해당 조건에 부합하는 모든 요소를 NodeList 형태로 반환합니다. 찾아진 각 요소에 대해, **`forEach`** 반복문을 사용하여 해당 요소의 **`fill`** 속성을 입력받은 색상(**`fillColor`**)으로 설정합니다. 이러한 과정을 통해 해당 클래스를 가진 모든 SVG 요소들의 색상이 변경됩니다.
 
-마지막으로, **`XMLSerializer`** 객체를 사용하여 수정된 DOM을 다시 SVG 데이터 문자열로 직렬화하고, 이 문자열을 반환합니다. 이렇게 반환된 문자열은 원본 SVG 데이터에 적용된 색상 변경 사항을 포함하고 있어, 클라이언트 측에서 동적으로 SVG 콘텐츠의 스타일을 변경하는 데 사용될 수 있습니다.
+마지막으로, **`XMLSerializer`** 객체를 사용하여 수정된 DOM을 다시 SVG 데이터 문자열로 직렬화하고, 이 문자열을 반환합니다.
 
 ### 문자열화된 SVG 파일 렌더링하기
 
-**`CanvasUnit`** 컴포넌트에서는 canvas를 사용하여 업데이트된 SVG 데이터를 렌더링하는 과정을 수행합니다. 이미지를 렌더링할 때 Canvas API를 이용하였습니다. 이미지가 로드되면, **`canvas.getContext("2d")`**를 사용하여 canvas의 2D 렌더링 컨텍스트에 접근하고, **`drawImage`** 메서드를 통해 이미지를 canvas에 그립니다. **`updateSvgData`** 함수를 호출하여 주어진 SVG 데이터(**`svgData`**)와 사용자에 의해 선택된 색상(**`fillColor`**)을 기반으로 새로운 SVG 데이터를 생성합니다. 이 업데이트된 SVG 데이터는 **`encodeURIComponent`**를 통해 URI 안전 문자열로 인코딩되고, 이를 Data URL 형식으로 변환합니다. ChildCanvas에서 updatedSvgData로 SVGData를 동적으로 수정하고 인코딩 후 Image 객체로 변환하여 Data URL을 이미지 소스(**`src`**)로 설정합니다.
+**`CanvasUnit`** 컴포넌트에서는 canvas를 사용하여 업데이트된 SVG 데이터를 렌더링하는 과정을 수행합니다. 이미지를 렌더링할 때 Canvas API를 이용하였습니다. 이미지가 로드되면, **`canvas.getContext("2d")`**를 사용하여 canvas의 2D 렌더링 컨텍스트에 접근하고, **`drawImage`** 메서드를 통해 이미지를 canvas에 그립니다. **`updateSvgData`** 함수를 호출하여 반환된 SVG 데이터는 **`encodeURIComponent`**를 통해 URI 안전 문자열로 인코딩되고, 이를 Data URL 형식으로 변환합니다. 이 Data URL을 이미지 객체의 소스(**`src`**)로 설정합니다.
 
 <p align="center">
   <img src="./src/assets/canvasrenderingExample.png", style="max-width: 100%; height: auto">
@@ -138,7 +145,7 @@ SVG를 직접 렌더링 하는 대신 Image 객체를 이용하여 canvas에 그
 
 ### 원인
 
-각각의 canvas는 독립적인 렌더링 영역을 가집니다. 따라서 ParentCanvas와 ChildCanvas 각각이 독립적인 렌더링을 가지고 있었기 때문에, ParentCanvas만을 대상으로 이미지를 생성하면 ChildCanvas의 내용이 포함되지 않습니다. 또한 하위 canvas의 요소들이 상위 canvas에 그려지기 이전에 다운로드를 했기 때문에, `ParentCanvas` 가 `ChildCanvas` 의 요소들을 담기 위해서 가지고 있던 틀에 해당되는 흰색 사각형만 그려진 채로 이미지가 만들어진 것입니다.
+각각의 canvas는 독립적인 렌더링 영역을 가집니다. 따라서 ParentCanvas와 ChildCanvas가 각각 독립적인 렌더링을 가지고 있었기 때문에, ParentCanvas만을 대상으로 이미지를 생성하면 ChildCanvas의 내용이 포함되지 않았습니다.  `ParentCanvas` 가 `ChildCanvas` 의 요소들을 담기 위해서 가지고 있던 틀에 해당되는 흰색 사각형만 그려진 채로 이미지가 만들어진 것입니다.
 
 ### 해결 방법
 
@@ -194,7 +201,7 @@ const downloadImage = (dataURL) => {
 
 **사용자 이벤트를 통해서 UI 변화를 테스트**
 
-`fireEvent.change` 는 사용자의 액션 (input filed의 색 변경)을 시뮬레이트합니다. 이 액션 자체가 Reac-t 컴포넌트의 상태나 props를 직접 변경하지 않습니다. 따라서 사용자 액션을 시뮬레이트하고 UI 업데이트 방식을 테스트하기 위해서는 추가적인 작업이 필요합니다. 그 방식은 아래처럼 두 가지 방식을 고민해볼 수 있었습니다.
+`fireEvent.change` 는 사용자의 액션 (input filed의 색 변경)을 시뮬레이트합니다. 이 액션 자체가 React 컴포넌트의 상태나 props를 직접 변경하지 않습니다. 따라서 사용자 액션을 시뮬레이트하고 UI 업데이트 방식을 테스트하기 위해서는 추가적인 작업이 필요합니다. 그 방식은 아래처럼 두 가지 방식을 고민해볼 수 있었습니다.
 
 <aside>
 
@@ -204,67 +211,68 @@ const downloadImage = (dataURL) => {
 
 </aside>
 
-첫 번째 방식: 이벤트 핸들러 호출
+**첫 번째 방식: 이벤트 핸들러 호출**
 
 <p align="center">
-  <img src="./src/assets/testcodeexampleeventhandler.png" style="max-width: 100%; height: auto;">
+  <img src="./src/assets/testcodeexampleeventhandler.png" style="max-width: 80%; height: auto;">
 </p>
 
 이벤트 핸들러 호출 방식은 비교적 간단합니다. 사용자 액션에 의해서 해당 요소의 이벤트 핸들러 함수가 호출되는지를 테스트하면 되고, 위의 예시에서는 사용자 액션에 의해 이벤트 핸들러 함수가 1회 호출되는지를 테스트하였습니다.
 
+**두 번째 방식**
 두 번째 방식은 이벤트 핸들러 호출의 결과로 컴포넌트의 props가 올바르게 업데이트가 되었는지를 테스트합니다. `rerender` 를 사용하여 컴포넌트가 새로운 props를 받아서 리렌더링되고 이를 통해 컴포넌트가 사용자 액션을 올바르게 처리하는지 테스트할 수 있습니다.
 
  <p align="center">
-  <img src="./src/assets/testcodeexamplererender.png", style="max-width: 100%; height: auto">
+  <img src="./src/assets/testcodeexamplererender.png", style="max-width: 80%; height: auto">
 </p>
 
 **mocking fetch를 왜 하는걸까?**
 
-Mocking은 컴포넌트가 참조하고 있는 외부코드를 가짜로 대체하는 방법입니다. \*\*그렇다면 왜 또 fetch를 Mocking하는걸까요? 그 이유는 테스트에서 실제 네트워크 요청과 같은 트랜잭션이 발생하지 않게 하기 위해서 입니다. 함수 내부에 DB에 저장하는 로직이 있다면, 실제로 DB 트랜잭션이 일어나지 않았지만 트랜잭션이 일어난 것으로 간주하여 해당되는 로직에서 에러가 발생하지 않게 합니다. 즉, 테스트 환경에서 실제 구현을 대체하기 위해 사용합니다. mock 함수를 호출했을 때 반환 받기 원하는 값을 사용자가 직접 지정하고, 이 리턴값을 사용해서 원하는 코드를 테스트합니다.
+Mocking은 컴포넌트가 참조하고 있는 외부코드를 가짜로 대체하는 방법입니다. 그렇다면 왜 또 fetch를 Mocking하는걸까요? 그 이유는 테스트에서 실제 네트워크 요청과 같은 트랜잭션이 발생하지 않게 하기 위해서 입니다. 테스트할 코드에 DB에 저장하는 로직이 있다면, DB로 트랜젝션이 일어나지 않는 다면 코드에서 에러가 발생하게 됩니다. 그렇다면 개발자가 테스트하고 싶은 로직을 테스트 하지 못한 채 테스트는 run error가 발생하게 됩니다. 따라서 실제로 DB 트랜잭션이 일어나지 않았지만 트랜잭션이 일어난 것으로 간주하여 해당되는 코드에서 에러가 발생하지 않게 해야 합니다. fetch를 mocking하는 것은 테스트 환경에서 실제 구현을 대체하기 위해 사용합니다. mock 함수를 호출했을 때 반환 받기 원하는 값을 개발자가 지정하고, 이 리턴값을 사용해서 원하는 코드를 테스트합니다.
 
 <p align="center">
-  <img src="./src/assets/testcodeexampleglobalfetch.png", style="max-width: 100%; height: auto">
+  <img src="./src/assets/testcodeexampleglobalfetch.png", style="max-width: 80%; height: auto">
 </p>
 
-**`global.fetch`**는 JavaScript에서 비동기 네트워크 요청을 수행하는 데 사용되는 함수입니다. 여기서는 vi를 사용하여 모킹(mocking)하였고 이렇게 하면 실제 API 엔드포인트에 요청을 보낼 필요 없이 **`fetch`** 호출을 시뮬레이션할 수 있습니다. **`expect.stringContaining("units?unitType=someType")`**는 **`fetch`**가 호출될 때 전달된 URL이 **`"units?unitType=someType"`** 문자열을 포함하고 있는지 확인합니다. **`<UnitSelector />`** 컴포넌트가 마운트될 때 **`global.fetch`**가 올바른 인수로 한 번 호출되는지 확인합니다
+**`global.fetch`**는 JavaScript에서 비동기 네트워크 요청을 수행하는 데 사용되는 함수입니다. 여기서는 vi를 사용하여 모킹(mocking)하였고 이렇게 하면 실제 API 엔드포인트에 요청을 보낼 필요 없이 **`fetch`** 호출을 시뮬레이션할 수 있습니다. 위에서 작성한 테스트에서는  **`<UnitSelector />`** 컴포넌트가 마운트될 때 **`global.fetch`**가 올바른 인수로 한 번 호출되는지 확인합니다. 또한 **`expect.stringContaining("units?unitType=someType")`**는 **`fetch`**가 호출될 때 전달된 URL이 **`"units?unitType=someType"`** 문자열을 포함하고 있는지 확인합니다.
 
 <p align="center">
-  <img src="./src/assets/testcodexampleconsolespy.png", style="max-width: 100%; height: auto">
+  <img src="./src/assets/testcodexampleconsolespy.png", style="max-width: 80%; height: auto">
 </p>
 
 **에러 테스트하기**
 
-테스트는 **`<UnitSelector />`** 컴포넌트가 **`fetch`** 요청 에러를 올바르게 핸들링하는지 확인하는 것입니다. 여기서 주로 **`console.error`**가 예상대로 호출되는지 검사하고 있습니다. **`vi.fn(() => Promise.reject(new Error("fetch error")));`** 코드는 **`fetch`** 호출이 실패하고 "fetch error"라는 메시지를 가진 에러를 반환하도록 합니다. **`console.error`**를 스파이로 설정하여 **`console.error`** 호출을 가로채고 기록합니다. **`expect(consoleSpy).toHaveBeenCalledWith("Error");`** 코드는 **`console.error`**가 "Error"라는 인자로 호출되었는지 확인하여 에러 핸들링이 제대로 작동하는지 검사합니다.
+테스트는 **`<UnitSelector />`** 컴포넌트가 **`fetch`** 요청 에러를 올바르게 핸들링하는지 확인하는 것입니다. 여기서는 **`console.error`**가 예상대로 호출되는지 검사하고 있습니다. **`vi.fn(() => Promise.reject(new Error("fetch error")));`** 코드는 **`fetch`** 호출이 실패하고 "fetch error"라는 메시지를 가진 에러를 반환하도록 합니다. **`console.error`**를 스파이로 설정하여 **`console.error`** 호출을 가로채고 기록합니다. **`expect(consoleSpy).toHaveBeenCalledWith("Error");`** 코드는 **`console.error`**가 "Error"라는 인자로 호출되었는지 확인하여 에러 핸들링이 제대로 작동하는지 검사합니다.
 
-**커버리지**
+### 커버리지
 
 <p align="center">
-  <img src="./src/assets/testcodeCoverage.png", style="max-width: 100%; height: auto">
+  <img src="./src/assets/testcodeCoverage.png", style="max-width: 80%; height: auto">
 </p>
 
 ## 로그인 로직 보완하기
 
 ### 기존 코드 문제점
 
-- 기존 코드에서 클라이언트는 Firebase을 통해 얻은 사용자 정보를 sessionStorage에 저장하고, 이후 HTTP 요청 시 사용자 정보를 서버에 보냅니다. 서버에서는 Firebase-admin을 이용하여 firebase token을 검증하고 유효한 사용자의 요청을 허용하는 구조였습니다. 이 구조에서는 XSS(Cross Site Scripting) 공격 즉, 악의적인 스크립트가 주입되면 사용자 데이터가 공격자에 의해 쉽게 탈취될 수 있는 문제가 발생할 수 있습니다. 따라서 클라이언트와 서버 간 토큰 기반의 기존 통신 방식을 보완할 방법을 찾게 되었습니다.
+기존 코드에서 클라이언트는 Firebase을 통해 얻은 사용자 정보를 sessionStorage에 저장하고, 이후 HTTP 요청 시 사용자 정보를 서버에 보냅니다. 서버에서는 Firebase-admin을 이용하여 firebase token을 검증하고 유효한 사용자의 요청을 허용하는 구조로 로그인 로직을 작성였습니다. 이 구조에서는 XSS(Cross Site Scripting) 공격 즉, 악의적인 스크립트가 주입되면 사용자 데이터가 공격자에 의해 쉽게 탈취될 수 있는 문제가 발생할 수 있습니다. 따라서 클라이언트와 서버 간 사용자 정보를 세션 스토리지에 저장하고 통신하는 방식을 보완할 방법을 찾게 되었습니다.
 
 ### 개선한 점
 
-- 기존 세션 스토리지 저장된 토큰 기반 통신 방식에서 쿠키 기반 통신 방식으로 변경하고자 하였습니다. 변경한 이유는 쿠키 기반 통신 방식이 쿠키에 HTTP Only 속성을 적용하여 XSS부터 토큰을 보호할 수 있기 때문이었습니다. 기존의 방식이 Firebase 토큰과 sessionStorage를 사용하는 구조였다면, 새로운 방식은 쿠키 기반의 통신 방식으로 전환하면서 기존 코드의 보안적 취약점을 개선해보려 했습니다. 전체적인 로그인 flow는 클라이언트는 사용자 정보를 서버에 전달하고 서버에서는 해당 정보로 jwt 토큰을 만들고 클라이언트에게 쿠키로 전달합니다. 이후, 클라이언트의 HTTP 요청에는 쿠키에 토큰이 담겨져 서버로 보내지고, 서버에서는 해당 쿠키로 검증하여 유효한 사용자인지 판단하게 됩니다.
+기존 세션 스토리지 저장된 토큰 기반 통신 방식에서 쿠키 기반 통신 방식으로 변경하고자 하였습니다. 변경한 이유는 쿠키 기반 통신 방식이 쿠키에 HTTP Only 속성을 적용하여 XSS부터 토큰을 보호할 수 있기 때문이었습니다. 기존의 방식이 Firebase 토큰과 sessionStorage를 사용하는 구조였다면, 새로운 방식은 쿠키 기반의 통신 방식으로 전환하면서 기존 코드의 보안적 취약점을 개선해보려 했습니다. 전체적인 로그인 flow는 클라이언트가 사용자 정보를 서버에 전달하고 서버에서는 해당 정보로 jwt 토큰을 만들고 클라이언트에게 쿠키로 전달합니다. 이후, 클라이언트의 HTTP 요청에는 쿠키에 토큰이 담겨져 서버로 보내지고, 서버에서는 해당 쿠키로 검증하여 유효한 사용자인지 판단하게 됩니다.
 
-- 기존의 토큰 기반 시스템에서는 클라이언트가 서버에 요청을 보낼 때마다 HTTP 요청의 헤더에 토큰을 수동으로 포함시켜야 합니다. 이 토큰은 사용자 인증 정보를 담고 있기 때문에, 만약 CSRF (Cross-Site Request Forgery) 공격이 발생하면, 공격자는 이 토큰을 이용해 사용자가 인증된 것처럼 서버에 요청을 보낼 수 있습니다. 이 요청에는 사용자의 토큰이 포함되어 서버에서 유효한 요청으로 인식될 수 있습니다.
+기존의 토큰 기반 시스템에서는 클라이언트가 서버에 요청을 보낼 때마다 HTTP 요청의 헤더에 토큰을 수동으로 포함시켜야 했습니다. 이 토큰은 사용자 인증 정보를 담고 있기 때문에, 만약 CSRF (Cross-Site Request Forgery) 공격이 발생하면, 공격자는 이 토큰을 이용해 사용자가 인증된 것처럼 서버에 요청을 보낼 수 있습니다. 그러혐 해당 요청은 사용자의 토큰이 포함되어 서버에서 유효한 요청으로 인식될 수 있습니다.
 
-- 쿠키를 사용하는 경우, 브라우저는 자동으로 모든 HTTP 요청에 쿠키를 첨부합니다. 이 때문에 클라이언트는 매 요청 시 토큰을 수동으로 첨부할 필요가 없어집니다. 하지만 쿠키 자체가 CSRF 공격을 완전히 방지하지는 못합니다. 이를 해결하기 위해 'SameSite' 쿠키 속성과 같은 추가적인 보안 조치가 필요합니다. 예를 들어, 'SameSite=Lax' 또는 'SameSite=Strict' 설정을 사용하면, 쿠키가 다른 도메인 간 요청에서 전송되는 것을 제한하여 CSRF 공격 즉, 사용자가 의도하지 않은 다른 사이트의 요청에서 쿠키가 전송되는 것을 방지할 수 있습니다.
+쿠키를 사용하는 경우, 브라우저는 자동으로 모든 HTTP 요청에 쿠키를 첨부합니다. 이 때문에 클라이언트는 매 요청 시 토큰을 수동으로 첨부할 필요가 없어집니다. 하지만 쿠키 자체가 CSRF 공격을 완전히 방지하지는 못합니다. 이를 해결하기 위해 'SameSite' 쿠키 속성과 같은 추가적인 보안 조치가 필요합니다. 'SameSite=Lax' 설정을 사용하여 쿠키가 다른 도메인 간 요청에서 전송되는 것을 제한하여 CSRF 공격 즉, 사용자가 의도하지 않은 다른 사이트의 요청에서 쿠키가 전송되는 것을 방지하였습니다.
 
-- 개선한 로그인 시나리오는 다음과 같습니다.
-
-- 최초 로그인 시 firebase를 통해 얻은 사용자 정보를 sessionStorage에 저장합니다.
-- 사용자 정보를 서버로 요청 보내고, 서버는 사용자 체크를 합니다. (사용자 조회 및 저장)
-- 서버는 사용자에게 jwt token을 생성하여 DB에 저장하고 클라이언트에게는 쿠키로 token을 전달합니다.
-- 클라이언트는 이후 모든 HTTP 요청에 쿠키를 함께 전달합니다.
-- 서버는 verifyCookie 미들웨어를 이용하여 사용자를 검증합니다.
-
-- 요약: 기존코드에서는 firebase token을 sessionStorage 저장하고 HTTP 요청 시 token을 수동으로 전달하여 사용자 검증을 하였습니다. 개선된 방식에서 클라이언트가 요청한 사용자 정보를 기반으로 서버에서 jwt token을 생성해 쿠키를 클라이언트에 전달합니다. 이후 HTTP 요청시 서버로 전달된 쿠키의 token 유효성 검사를 진행해 사용자 검증하는 방식으로 변경하였습니다.
+개선한 로그인 시나리오는 다음과 같습니다.
+| 단계 | 기존 방식 | 개선된 방식 |
+|------|-----------|-------------|
+| 1. 로그인 | Firebase를 통해 얻은 사용자 정보를 sessionStorage에 저장 | 동일 |
+| 2. 사용자 정보 요청 | 사용자 정보를 서버에 요청 | 동일 |
+| 3. 서버에서의 사용자 체크 | 사용자 조회 및 저장  | 동일 |
+| 4. 토큰 생성 및 전달 | - | 서버에서 JWT 토큰 생성, DB에 저장, 클라이언트에 쿠키로 전달 |
+| 5. HTTP 요청 | HTTP 요청 시 token을 수동 전달 | 클라이언트가 모든 HTTP 요청에 쿠키를 브라우저가 자동 전달 |
+| 6. 사용자 검증 | 서버에서 verifyToken 미들웨어로 firebase token 검증 | 서버에서 verifyCookie 미들웨어를 통해 사용자 검증 |
 
 # 기술스택
 
