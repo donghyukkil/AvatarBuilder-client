@@ -58,7 +58,7 @@ const Carousel = ({
                   )}
                 </div>
               );
-          })}
+            })}
         </div>
         <Button
           onClick={onNextButtonClick}

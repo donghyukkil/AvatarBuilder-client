@@ -56,17 +56,20 @@ const Sketch = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
       <NavBar />
-      <div className="flex flex-grow">
+      <div className="flex">
         <UnitSelectorContainer
-          style={"w-1/2 bg-gray-200 p-4"}
+          style={"w-1/2 h-full bg-gray-200 p-4"}
           elements={elements}
           onElementChange={handleElementChange}
         />
-        <CanvasContainer style={"w-1/2 bg-gray-300 p-4"} elements={elements} />
+        <CanvasContainer
+          style={"w-1/2 h-full bg-gray-300 p-4"}
+          elements={elements}
+        />
       </div>
-    </div>
+    </>
   );
 };
 

@@ -53,8 +53,8 @@ const NavBar = () => {
 
   return (
     <nav className="bg-zinc-100">
-      <div className="mx-auto max-w-8xl mx-10 px-2">
-        <div className="relative flex h-16 items-center justify-between">
+      <div className="mx-auto">
+        <div className="relative flex items-center justify-between">
           <Button
             onClick={navigateToHome}
             style={
