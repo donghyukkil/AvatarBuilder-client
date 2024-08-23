@@ -51,24 +51,28 @@ const UnitSelector = ({ elements, onElementChange, unitType, title }) => {
   }, [currentPage]);
 
   return (
-    <div className="h-1/3 bg-gray-300 border-t border-gray-200 mx-auto px-10">
-      <h1 className="text-xl">{title}</h1>
-      <ColorPicker
-        color={elements[unitType]?.fillColor}
-        onColorChange={handleColorChange}
-        toShow={unitType !== "face"}
-      />
-      <Carousel
-        items={unitData}
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPrevButtonClick={handlePrevButtonClick}
-        onNextButtonClick={handleNextButtonClick}
-        fillColor={elements[unitType]?.fillColor}
-        elements={elements}
-        onElementChange={onElementChange}
-        unitType={unitType}
-      />
+    <div className=" bg-gray-300 border-t border-gray-200 mx-auto px-10 h-1/3 flex flex-col justify-evenly">
+      <div>
+        <h1 className="text-xl">{title}</h1>
+        <ColorPicker
+          color={elements[unitType]?.fillColor}
+          onColorChange={handleColorChange}
+          toShow={unitType !== "face"}
+        />
+      </div>
+      <div className="h-1/2">
+        <Carousel
+          items={unitData}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPrevButtonClick={handlePrevButtonClick}
+          onNextButtonClick={handleNextButtonClick}
+          fillColor={elements[unitType]?.fillColor}
+          elements={elements}
+          onElementChange={onElementChange}
+          unitType={unitType}
+        />
+      </div>
     </div>
   );
 };

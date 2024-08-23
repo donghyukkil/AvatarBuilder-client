@@ -16,30 +16,30 @@ const Carousel = ({
   unitType,
 }) => {
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex items-center justify-center w-full">
-        <Button
-          onClick={onPrevButtonClick}
-          disabled={currentPage === 1}
-          style={`ml-8 ${"disabled:opacity-25"}`}
-          data-testid="Prev"
-        >
-          <AiOutlineCaretLeft size={40} />
-        </Button>
-        <div className="flex space-x-5">
+    <div>
+      <div className="flex">
+        <div className="flex flex-col" style={{ marginTop: "25px" }}>
+          <Button
+            onClick={onPrevButtonClick}
+            disabled={currentPage === 1}
+            style={`${"disabled:opacity-25"}`}
+            data-testid="Prev"
+          >
+            <AiOutlineCaretLeft size={40} />
+          </Button>
+        </div>
+        <div className="flex flex-1 space-x-5">
           {totalPages !== 0 &&
             Array.from({ length: itemsPerPage }).map((_, index) => {
               const item = items?.[index];
 
               return (
-                <div key={index} className="w-1/3">
+                <div key={index} className="flex-1">
                   {item && typeof item === "string" ? (
-                    <div className="bg-gray-200 rounded-lg w-52 h-52">
+                    <div className="">
                       {item.includes("<svg") ? (
                         <ChildCanvas
                           svgData={item}
-                          width={200}
-                          height={200}
                           fillColor={fillColor}
                           elements={elements}
                           onElementChange={onElementChange}
@@ -54,20 +54,25 @@ const Carousel = ({
                       )}
                     </div>
                   ) : (
-                    <div className="w-52 h-52 bg-gray-200 rounded-lg"></div>
+                    <div className=""></div>
                   )}
                 </div>
               );
             })}
         </div>
-        <Button
-          onClick={onNextButtonClick}
-          disabled={currentPage === totalPages}
-          style={`mr-8 ${"disabled:opacity-25"}`}
-          data-testid="Next"
+        <div
+          className="flex flex-col"
+          style={{ marginTop: "25px", marginLeft: "15px" }}
         >
-          <AiOutlineCaretRight size={40} />
-        </Button>
+          <Button
+            onClick={onNextButtonClick}
+            disabled={currentPage === totalPages}
+            style={`${"disabled:opacity-25"}`}
+            data-testid="Next"
+          >
+            <AiOutlineCaretRight size={40} />
+          </Button>
+        </div>
       </div>
     </div>
   );

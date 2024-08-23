@@ -75,7 +75,7 @@ const CanvasUnit = forwardRef((props, ref) => {
 
   return (
     <>
-      <div className="flex flex justify-center">
+      <div className="flex justify-center">
         <span className="px-5">
           <label>
             {unitType} width:

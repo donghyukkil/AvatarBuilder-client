@@ -5,7 +5,6 @@ import { useMediaQuery } from "react-responsive";
 
 import "./config/firebase-config";
 
-import Home from "./pages/Home";
 import Sketch from "./pages/Sketch";
 import MySketches from "./pages/MySketches";
 
@@ -34,8 +33,7 @@ function ResponsiveApp() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/sketch/new" element={<Sketch />} />
+      <Route path="/" element={<Sketch />} />
       <Route path="/sketch/:sketch_id" element={<Sketch />} />
       <Route path="/my-sketches" element={<MySketches />} />
     </Routes>

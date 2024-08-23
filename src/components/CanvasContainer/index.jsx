@@ -121,7 +121,7 @@ const CanvasContainer = ({ style, elements }) => {
 
   return (
     <div className={style}>
-      <div className="flex justify-center my-6">
+      {/* <div className="flex justify-center">
         <input
           className="placeholder:text-slate-400 w-3/5 block bg-white border border-slate-300 rounded-md py-2 pl-9 pr-3 sm:text-sm"
           placeholder="Title"
@@ -132,9 +132,9 @@ const CanvasContainer = ({ style, elements }) => {
             setSketchForm({ ...sketchForm, title: event.target.value })
           }
         />
-      </div>
+      </div> */}
       <div className="flex justify-around my-6">
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           {sketchForm.isPublic ? "Public" : "Private"}
           <Button
             onClick={() => {
@@ -171,9 +171,9 @@ const CanvasContainer = ({ style, elements }) => {
                   text-md`}
         >
           Save
-        </Button>
+        </Button> */}
       </div>
-      <ParentCanvas width={700} height={700}>
+      <ParentCanvas width={700} height={500}>
         <CanvasUnit
           ref={canvasRefs.headCanvas}
           location={headUnit}
