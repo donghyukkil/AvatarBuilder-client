@@ -68,7 +68,7 @@ const MySketches = () => {
   }, [currentPage]);
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="h-screen flex flex-col">
       <NavBar />
       <main className="flex-grow grid grid-cols-3 grid-rows-2 gap-4 p-4">
         {sketches.length !== 0
@@ -113,7 +113,7 @@ const MySketches = () => {
           </div>
         </div>
       )}
-      <nav className="flex justify-center">
+      {/* <nav className="flex justify-center">
         <ul className="list-style-none flex">
           <li>
             <Button
@@ -152,7 +152,7 @@ const MySketches = () => {
             </Button>
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </div>
   );
 };

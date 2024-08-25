@@ -1,13 +1,9 @@
-import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef, forwardRef, useImperativeHandle } from "react";
 import ParentCanvas from "../ParentCanvas";
 import CanvasUnit from "../CanvasUnit";
-import Button from "../Button";
 import { CONFIG } from "../../constants/config";
 
-const CanvasContainer = ({ style, elements }) => {
-  const navigate = useNavigate();
-
+const CanvasContainer = forwardRef(({ style, elements }, ref) => {
   const canvasSize = {
     width: 700,
     height: 500,
@@ -56,7 +52,6 @@ const CanvasContainer = ({ style, elements }) => {
     setSelectedUnit(null);
   };
 
-  // Canvas들을 병합하여 하나의 이미지로 생성
   const mergeCanvas = () => {
     const headCanvas = canvasRefs.headCanvas.current;
     const faceCanvas = canvasRefs.faceCanvas.current;
@@ -79,21 +74,6 @@ const CanvasContainer = ({ style, elements }) => {
     return mergedDataURL;
   };
 
-  // 이미지 다운로드 기능
-  const handleImageDownload = () => {
-    const mergedDataURL = mergeCanvas();
-    downloadImage(mergedDataURL);
-  };
-
-  // 이미지를 로컬에 다운로드하는 함수
-  const downloadImage = (dataURL) => {
-    const link = document.createElement("a");
-    link.download = "merged_image.png";
-    link.href = dataURL;
-    link.click();
-  };
-
-  // Sketch를 서버에 저장하는 함수
   const handleSketchSave = async () => {
     const mergedDataURL = mergeCanvas();
 
@@ -124,40 +104,20 @@ const CanvasContainer = ({ style, elements }) => {
       }
 
       const data = await response.json();
-
-      navigate("/my-sketches");
-
       console.log("Server response:", data.sketch.imageUrl);
     } catch (error) {
       console.error("Fetch error:", error);
     }
   };
 
+  useImperativeHandle(ref, () => ({
+    mergeCanvas,
+    handleSketchSave,
+  }));
+
   return (
     <div className={style}>
-      <div className="flex justify-around my-6">
-        <Button
-          onClick={handleImageDownload}
-          style={
-            "flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white rounded-md px-3 py-2 text-md"
-          }
-        >
-          Download
-        </Button>
-        <Button
-          onClick={handleSketchSave}
-          style={`
-                  flex items-center
-                  justify-center bg-blue-500
-                  hover:bg-blue-700
-                  text-white
-                  rounded-md
-                  px-3 py-2
-                  text-md`}
-        >
-          Save
-        </Button>
-      </div>
+      <div className="flex justify-around my-6"></div>
       <ParentCanvas
         width={canvasSize.width}
         height={canvasSize.height}
@@ -211,6 +171,6 @@ const CanvasContainer = ({ style, elements }) => {
       </ParentCanvas>
     </div>
   );
-};
+});
 
 export default CanvasContainer;

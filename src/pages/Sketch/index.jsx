@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, useRef } from "react";
 import NavBar from "../../components/NavBar";
 import CanvasContainer from "../../components/CanvasContainer";
 import UnitSelectorContainer from "../../components/UnitSelectorContainer";
-
 import getSvgDataArray from "../../utils/getSvgDataArray";
-
 import { CONFIG } from "../../constants/config";
 
 const Sketch = () => {
@@ -14,6 +11,7 @@ const Sketch = () => {
     face: { svgData: null, fillColor: "#000000" },
     body: { svgData: null, fillColor: "#000000" },
   });
+  const canvasContainerRef = useRef(null);
 
   const handleElementChange = (unitType, newElementData) => {
     setElements((prevElements) => ({
@@ -55,11 +53,36 @@ const Sketch = () => {
     fetchInitialSvgData();
   }, []);
 
+  const handleDownload = () => {
+    if (canvasContainerRef.current) {
+      const mergeImage = canvasContainerRef.current.mergeCanvas();
+      downloadImage(mergeImage);
+    } else {
+      console.error("CanvasContainer is not available");
+    }
+  };
+
+  const downloadImage = (dateURL) => {
+    const link = document.createElement("a");
+    link.download = "merged_image.png";
+    link.href = dateURL;
+    link.click();
+  };
+
+  const handleSketchSave = () => {
+    if (canvasContainerRef.current) {
+      canvasContainerRef.current.handleSketchSave();
+    } else {
+      console.error("CanvasContainer is not avalble");
+    }
+  };
+
   return (
     <div className="h-screen flex flex-col">
-      <NavBar />
+      <NavBar mergeCanvas={handleDownload} saveSketch={handleSketchSave} />
       <div className="flex flex-grow bg-gray-200">
         <CanvasContainer
+          ref={canvasContainerRef}
           style={"w-full bg-gray-300 p-4 m-2"}
           elements={elements}
         />

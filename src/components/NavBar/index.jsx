@@ -13,7 +13,7 @@ import UploadIcon from "../../assets/upload-01.svg";
 import DownloadIcon from "../../assets/download.svg";
 import ProfileIcon from "../../assets/profile.svg";
 
-const NavBar = () => {
+const NavBar = ({ mergeCanvas, saveSketch }) => {
   const navigate = useNavigate();
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
@@ -89,6 +89,22 @@ const NavBar = () => {
     }
   };
 
+  const handleDownloadClick = () => {
+    if (mergeCanvas) {
+      mergeCanvas();
+    } else {
+      console.error("mergeCanvas function is not available");
+    }
+  };
+
+  const handleSaveClick = () => {
+    if (saveSketch) {
+      saveSketch();
+    } else {
+      console.error("saveSketch function is not available");
+    }
+  };
+
   const userPhotoURL = sessionStorage.getItem("userPhotoURL") || ProfileIcon;
   const email = sessionStorage.getItem("userEmail");
   const username = email ? email.split("@")[0] : "";
@@ -121,14 +137,14 @@ const NavBar = () => {
         GenAvatar
       </span>
       <div className="flex justify-around items-center w-1/3">
-        <Button>
+        <Button onClick={handleDownloadClick}>
           <img
             src={DownloadIcon}
             alt="Download Icon"
             className="w-8 h-8 mr-2"
           />
         </Button>
-        <Button>
+        <Button onClick={handleSaveClick}>
           <img src={UploadIcon} alt="Upload Icon" className="w-10 h-10 mr-2" />
         </Button>
         <div className="relative" ref={dropdownRef}>
