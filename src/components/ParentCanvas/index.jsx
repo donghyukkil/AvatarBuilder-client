@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const ParentCanvas = ({ width, height, children }) => {
+const ParentCanvas = ({ width, height, children, onCanvasClick }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -20,6 +20,7 @@ const ParentCanvas = ({ width, height, children }) => {
           height={height}
           style={{ position: "relative", marginBottom: "20px" }}
           data-testid="child-canvas"
+          onClick={onCanvasClick}
         />
         {children}
       </div>

@@ -1,16 +1,17 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { BsDownload, BsToggleOn, BsToggleOff } from "react-icons/bs";
-
 import ParentCanvas from "../ParentCanvas";
 import CanvasUnit from "../CanvasUnit";
 import Button from "../Button";
-
 import { CONFIG } from "../../constants/config";
 
 const CanvasContainer = ({ style, elements }) => {
   const navigate = useNavigate();
+
+  const canvasSize = {
+    width: 700,
+    height: 500,
+  };
 
   const canvasRefs = {
     headCanvas: useRef(null),
@@ -39,6 +40,7 @@ const CanvasContainer = ({ style, elements }) => {
     x: 250,
   });
 
+  const [selectedUnit, setSelectedUnit] = useState(null);
   const [sketchForm, setSketchForm] = useState({
     title: "",
     type: "cartoon",
@@ -46,14 +48,23 @@ const CanvasContainer = ({ style, elements }) => {
     isPublic: true,
   });
 
+  const handleCanvasUnitClick = (unitType) => {
+    setSelectedUnit(unitType);
+  };
+
+  const handleParentCanvasClick = () => {
+    setSelectedUnit(null);
+  };
+
+  // Canvas들을 병합하여 하나의 이미지로 생성
   const mergeCanvas = () => {
     const headCanvas = canvasRefs.headCanvas.current;
     const faceCanvas = canvasRefs.faceCanvas.current;
     const bodyCanvas = canvasRefs.bodyCanvas.current;
 
     const mergedCanvas = document.createElement("canvas");
-    mergedCanvas.width = 700;
-    mergedCanvas.height = 700;
+    mergedCanvas.width = canvasSize.width;
+    mergedCanvas.height = canvasSize.height;
 
     const mergedContext = mergedCanvas.getContext("2d");
     mergedContext.fillStyle = "white";
@@ -68,11 +79,13 @@ const CanvasContainer = ({ style, elements }) => {
     return mergedDataURL;
   };
 
+  // 이미지 다운로드 기능
   const handleImageDownload = () => {
     const mergedDataURL = mergeCanvas();
     downloadImage(mergedDataURL);
   };
 
+  // 이미지를 로컬에 다운로드하는 함수
   const downloadImage = (dataURL) => {
     const link = document.createElement("a");
     link.download = "merged_image.png";
@@ -80,6 +93,7 @@ const CanvasContainer = ({ style, elements }) => {
     link.click();
   };
 
+  // Sketch를 서버에 저장하는 함수
   const handleSketchSave = async () => {
     const mergedDataURL = mergeCanvas();
 
@@ -121,42 +135,13 @@ const CanvasContainer = ({ style, elements }) => {
 
   return (
     <div className={style}>
-      {/* <div className="flex justify-center">
-        <input
-          className="placeholder:text-slate-400 w-3/5 block bg-white border border-slate-300 rounded-md py-2 pl-9 pr-3 sm:text-sm"
-          placeholder="Title"
-          type="text"
-          name="title"
-          value={sketchForm.title}
-          onChange={(event) =>
-            setSketchForm({ ...sketchForm, title: event.target.value })
-          }
-        />
-      </div> */}
       <div className="flex justify-around my-6">
-        {/* <div className="flex items-center">
-          {sketchForm.isPublic ? "Public" : "Private"}
-          <Button
-            onClick={() => {
-              setSketchForm({ ...sketchForm, isPublic: !sketchForm.isPublic });
-            }}
-            data-testid="toggleButton"
-          >
-            {sketchForm.isPublic ? (
-              <BsToggleOn size={25} />
-            ) : (
-              <BsToggleOff size={25} />
-            )}
-          </Button>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
         <Button
           onClick={handleImageDownload}
           style={
             "flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white rounded-md px-3 py-2 text-md"
           }
         >
-          <BsDownload className="mr-2" />
           Download
         </Button>
         <Button
@@ -171,9 +156,13 @@ const CanvasContainer = ({ style, elements }) => {
                   text-md`}
         >
           Save
-        </Button> */}
+        </Button>
       </div>
-      <ParentCanvas width={700} height={500}>
+      <ParentCanvas
+        width={canvasSize.width}
+        height={canvasSize.height}
+        onCanvasClick={handleParentCanvasClick}
+      >
         <CanvasUnit
           ref={canvasRefs.headCanvas}
           location={headUnit}
@@ -181,8 +170,13 @@ const CanvasContainer = ({ style, elements }) => {
           svgData={elements.head?.svgData}
           fillColor={elements.head?.fillColor}
           unitType={"head"}
-          parentWidth={700}
-          parentHeight={700}
+          parentWidth={canvasSize.width}
+          parentHeight={canvasSize.height}
+          isSelected={selectedUnit === "head"}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCanvasUnitClick("head");
+          }}
         />
         <CanvasUnit
           ref={canvasRefs.faceCanvas}
@@ -191,8 +185,13 @@ const CanvasContainer = ({ style, elements }) => {
           svgData={elements.face?.svgData}
           fillColor={elements.face?.fillColor}
           unitType={"face"}
-          parentWidth={700}
-          parentHeight={700}
+          parentWidth={canvasSize.width}
+          parentHeight={canvasSize.height}
+          isSelected={selectedUnit === "face"}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCanvasUnitClick("face");
+          }}
         />
         <CanvasUnit
           ref={canvasRefs.bodyCanvas}
@@ -201,8 +200,13 @@ const CanvasContainer = ({ style, elements }) => {
           svgData={elements.body?.svgData}
           fillColor={elements.body?.fillColor}
           unitType={"body"}
-          parentWidth={700}
-          parentHeight={700}
+          parentWidth={canvasSize.width}
+          parentHeight={canvasSize.height}
+          isSelected={selectedUnit === "body"}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCanvasUnitClick("body");
+          }}
         />
       </ParentCanvas>
     </div>
